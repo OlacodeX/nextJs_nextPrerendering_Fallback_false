@@ -30,17 +30,6 @@ export async function getStaticPaths() {
         }
     })
     return {
-        // paths:[
-            // {
-            //     params:{ postId:'1'}
-            // },
-            // {
-            //     params:{ postId:'2'}
-            // },
-            // {
-            //     params:{ postId:'3'}
-            // }
-        // ],
         paths,
         fallback: false
     }
