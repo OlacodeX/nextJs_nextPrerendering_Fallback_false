@@ -13,7 +13,7 @@ export default Post
 
 // For routes with dynamic path parameter which we want to statically generate at build time, we must define also the getstaticpaths function which tells next which dynamic paths to statically generate at build time. This is because, without telling it, next will have alot of paths depending on the number of possible parameters (e.g in the case of 1ooposts, that is 100 possible routes with same html structure but different data due to different route parameters) and this leaves it confused as to what amount of work needs to be done at build time.
 // Like the getstaticprops, this function also returns an object which contains a 'paths' key which will be an array of objects containing 'params' which is also an object containing each path parameter, in our case here - postId with a string value.. 
-// It must also contain a second key called 'fallback' with the value set to false here.
+// It must also contain a second key called 'fallback' with possible values of false, true or blocking.
 export async function getStaticPaths() { 
     
     // make the API call
@@ -59,7 +59,6 @@ export async function getStaticProps(context) {
     // return an object of object holding the fetched data in a props object.
     return {
         props:{
-            // Grab only the first 3
             post: data,
         },
     }
